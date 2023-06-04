@@ -1,1 +1,4 @@
-print("hello Roman world")
+def add(x,y):
+    return x + y
+
+print(add(2,2))    
