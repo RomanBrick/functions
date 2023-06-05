@@ -1,7 +1,12 @@
-import wikipedia as wk
+from mylib.bot import scrape
+import click
 
-def scrape(name="Barack", lenght=1):
-    result = wk.summary(name, sentences=lenght)
-    return result
 
-print(scrape("Microsoft"))
+@click.command()
+@click.option("--name", help="Web page we want to scrape")
+def cli(name="Microsoft", lenght=1):
+    result = scrape(name)
+    click.echo(click.style(f"{result}:",bg="blue", fg="white", bold=True))
+
+if __name__ == "__main__":
+    cli()
